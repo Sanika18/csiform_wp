@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CSI Membership form</title>
+		<script src="validation.js"></script>
+
+		<style>
+			#demo{
+			color:red;
+			}
+
+			fieldset {
+    			display: block;
+			width: 50%;
+			text-align:center;
+   			margin-left: 25%;
+    			margin-right: 25%;
+			}
+
+			button:hover {
+    			background-color:#1E90FF;
+			}
+
+			input,select,button{
+			padding: 5px 8px;
+    			margin: 4px 0;
+    			display: inline-block;
+    			border: 1px solid #ccc;
+    			border-radius: 3px;
+    			box-sizing: border-box;
+			}
+	
+			input[type=text,email,password,date]{
+			width:80%;
+			}
+
+			input[type=submit] {
+   			background-color: #1E90FF;
+    			color: white;
+    			padding: 5px 8px;
+    			margin: 4px 0;
+    			border: none;
+    			border-radius: 3px;
+    			cursor: pointer;
+			}
+
+			input[type=submit]:hover {
+   			background-color:#45a049;
+			}
+
+			legend{
+			color:#1E90FF;
+			}
+			
+			th{
+			text-align:right;
+			}
+
+			td{
+			text-align:left;
+			}
+
+			ul#m01 {
+    			list-style-type: none;
+    			margin: 1;
+    			padding: 1;
+    			overflow: hidden;
+    			background-color:#1E90FF;
+			}
+
+			li#m01 {
+    			float:left;
+			}
+
+			li#m01 a {
+    			display: block ;
+    			color: white;
+    			text-align: right;
+    			padding: 10px;
+			text-decoration:none;
+			}
+
+			li#m01 a:hover {
+    			background-color: #191970;
+    			text-decoration:underline;
+			}
+
+			li#m01 a.active {
+    			background-color:blue;
+			}
+		</style>
+
+	</head>
+	<body>
+	<center style="background-color:#87CEEB;">
+	<table>
+	<tr>
+		<td><img src="dbit.png" alt="DBIT LOGO" style="width: 75px;height: 75px;"></td>
+		<td><font size="6">DON BOSCO INSTITUTE OF TECHNOLOGY</font><br>
+		<center><font size="4">Computer Society India</font></center></td>
+		<td><img src="csi-logo.png" alt="CSI LOGO" style="width: 75px;height: 75px;"></td>
+	</tr>
+	</table>
+	</center>
+	<hr>
+	<center><h2>CSI Membership form</h2></center>
+	<ul id="m01">
+  		<li id="m01"><a href="#home">Home</a></li>
+ 		<li id="m01"><a class="active" href="1.html">Register</a></li>
+  		<li id="m01"><a href="#contact">Contact Us</a></li>
+  		<li id="m01"><a href="#about">About Us</a></li>
+   		<li id="m01"><a href="2.php">Search</a></li>
+    		<li id="m01"><a href="3.html">Approve</a></li>
+	</ul>
+	<form name="csiform" action="register.php" method="POST" onsubmit="return myFunction()">
+		<fieldset>
+			<legend>Personal Information</legend>
+			<table align="center">
+				<tr>
+				<th>Name</th>
+				<td>:</td>
+				<td><input type="text" id="fname" name="fname"></td>
+				</tr>
+				<tr>
+				<th>Middle name</th>
+				<td>:</td>
+				<td><input type="text" id="mname" name="mname"></td>
+				</tr>
+				<tr>
+				<th>Last Name</th>
+				<td>:</td>
+				<td><input type="text" id="lname" name="lname"></td>
+				</tr>
+				<tr>
+				<th>Date Of Birth</th>
+				<td>:</td>
+				<td><input type="Date" name="dob"></td>
+				</tr>
+				<tr>
+				<th>Gender</th>
+				<td>:</td>
+				<td><input type="radio" name="gen" value="male">Male<input type="radio" name="gen" value="female">Female<td>
+				</tr>
+				<tr>		
+				<th>Contact</th>
+				<td>:</td>
+				<td><input type="text" id="pno" name="num"></td>
+				</tr>
+				<tr>
+				<th>Email</th>
+				<td>:</td>
+				<td><input type="email" name="em"></td>
+				</tr>
+				<tr>
+				<th>Address</th>
+				<td>:</td>
+				<td><textarea name="addr" rows="3" cols="32"></textarea></td>
+				</tr>
+				<tr>
+				<th>City</th>
+				<td>:</td>
+				<td><input type="text" name="ct"></td>
+				</tr>
+			</table>
+		</fieldset>
+		<br>
+		<fieldset>
+		<legend>Academic details</legend>
+			<table align="center">
+			<tr>
+			<th>Department</th>
+			<td>:</td>
+			<td><select id="dept" name="dept" style="max-width:80%;">
+				<option value="no">Select Department</option>
+				<option value="IT">Information Technology</option>
+				<option value="COMPS">Computer Engineering</option>
+				<option value="EXTC">Electronics and Telecommunications</option>
+				<option value="MECH">Mechanical Engineering</option>
+			     </select>
+			</td>
+			</tr>
+			<tr>
+			<th>Year</th>
+			<td>:</td>
+			<td><select id="yr" name="yr" style="width:80%;">
+				<option value="no">Select Year</option>
+				<option value="FE">First</option>
+				<option value="SE">Second</option>
+				<option value="TE">Third</option>
+				<option value="BE">Fourth</option>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<th>Student ID</th>
+			<td>:</td>
+			<td><input type="text" id="noid" name="id"></td>
+			</tr>
+			</table>
+		</fieldset>
+		<br>
+		<fieldset>
+		<legend>Technical Skills</legend>
+			<table align="center">
+			<tr>
+			<th>Technical skills</th><td>:</td>
+			<td><input type="checkbox" name="skl" value="C">C&nbsp<input type="checkbox" name="skl" value="C++">C++&nbsp<input type="checkbox" name="skl" value="java">Java&nbsp<input type="checkbox" name="skl" value="html">HTML&nbsp<input type="checkbox" name="skl" value="css">CSS&nbsp<input type="checkbox" name="skl" value="ps">Photoshop</td>
+			</tr>		
+			<tr>
+			<th>Additional</th>
+			<td>:</td><td><textarea name="addt" rows="3" cols="32"></textarea></td>
+			</tr>
+			</table>
+		</fieldset>
+		<br>
+		<fieldset>
+		<legend>Membership period</legend>
+			<table>
+			<tr>
+			<th>DBIT-CSI membership</th><td>:</td>
+			<td>
+				<input type="radio" name="dmem" value="1" onclick="manageFee()" >1 year&nbsp
+				<input type="radio" name="dmem" value="2" onclick="manageFee()">2 years&nbsp
+				<input type="radio" name="dmem" value="3" onclick="manageFee()" >3 years&nbsp
+				<input type="radio" name="dmem" value="no" onclick="manageFee()">No&nbsp
+			</td>
+			</tr>
+			<tr>
+			<th>CSI-India membership</th>
+			<td>:</td>
+			<td>
+		    	<input type="radio" name="imem" value="1" onclick="manageFee()">1 year&nbsp
+		    	<input type="radio" name="imem" value="2" onclick="manageFee()" >2 years&nbsp
+		    	<input type="radio" name="imem" value="3" onclick="manageFee()">3 years&nbsp
+		    	<input type="radio" name="imem" value="life" onclick="manageFee()">Lifetime&nbsp
+		    	<input type="radio" name="imem" value="no" onclick="manageFee()">No&nbsp
+			</td>
+			</tr>
+			<tr>
+			<th>Amount to be paid</th>
+			<td>:</td>
+			<td>&#8377;<input type="text" name="amt" onselect="return manageFee()"></td>
+			</tr>
+			</table>
+		</fieldset>
+	<center><br><input type="submit" value="Submit"></input> <button type="reset" value="Reset">Reset</button><br></center>
+	</form>
+	</body>
+</html>
