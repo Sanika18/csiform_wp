@@ -1,34 +1,34 @@
 <?php
 $connect=mysqli_connect("localhost", "root", "", "csi")or die("couldn't find server");
+$result = mysqli_query($connect,"SELECT * FROM csireg WHERE dept= 'IT'")or die("Unable to extract");
+
 
 if(isset($_POST['search'])){
 $dept=$_POST["dept"];
-
 
 $yr=$_POST["yr"];
 
 
 $name=$_POST["fname"];
-
+$result = mysqli_query($connect,"SELECT * FROM csireg WHERE dept= '".$dept."'")or die("u");
 if($dept!="no")
 {
 	if($yr!="no")
 	{
 		if($name!="")
 		{
-			$sql = "SELECT * FROM csireg WHERE dept=".$dept." && year=".$yr." && fname=".$name."";
-			$result = $connect->query($sql);
+			$result = mysqli_query($connect,"SELECT * FROM csireg WHERE dept=".$dept." && year=".$yr." && fname=".$name." ")or die("Unable");
+
 		}
 		else
 		{
-			$sql = "SELECT * FROM csireg WHERE dept=".$dept." && year=".$yr."";
-			$result = $connect->query($sql);
+			$result = mysqli_query($connect,"SELECT * FROM csireg WHERE dept=".$dept." && year=".$yr." ")or die("U");
+		
 		}
 	}
 	else
 	{
-		$sql = "SELECT * FROM csireg WHERE dept=".$dept." && fname=".$name."";
-		$result = $connect->query($sql);
+		$result= mysqli_query($connect,"SELECT * FROM csireg WHERE dept=".$dept." && fname=".$name." ")or die("Un");
 	}
 }
 else
@@ -37,22 +37,21 @@ else
 	{
 		if($name!="")
 		{
-			$sql = "SELECT * FROM csireg WHERE year=".$yr." && fname=".$name."";
-			$result = $connect->query($sql);
+			$result = mysqli_query($connect,"SELECT * FROM csireg WHERE year=".$yr." && fname=".$name." ")or die("Unable to");
 		}
 		else
 		{
-			$sql = "SELECT * FROM csireg WHERE year=".$yr."";
-			$result = $connect->query($sql);
+			$result= mysqli_query($connect,"SELECT * FROM csireg WHERE year=".$yr." ")or die("Unable to extrac");
 		}
 	}
 	else
 	{
-		$sql = "SELECT * FROM csireg WHERE fname=".$name."";
-		$result = $connect->query($sql);
+		$result = mysqli_query($connect,"SELECT * FROM csireg WHERE fname=".$name." ")or die("Unable to extra");
 	}
 }
 }
+
+$numrows=mysqli_num_rows($result);
 ?>
 
 <!DOCTYPE html>
@@ -201,26 +200,19 @@ li#m01 a.active {
 <tr>
 
 <?php
-
-if(($result->num_rows)>0){
+if($numrows!=0){
 	$i=0;
-	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-//while($row = $result->fetch_assoc()) {
+	while($array = mysqli_fetch_row($result)) {
 	
 echo "<tr>
 	<td>".$i."</td>
-	<td>".$row["sid"]."</td>
-	<td>".$row["fname"]." ". $row["mname"]." ".$row["lname"]."</td>
-	<td>".$row["dept"]."</td>
-	<td>".$row["year"]."</td>
+	<td>".$array[12]."</td>
+	<td>".$array[1]." ". $array[2]." ".$array[3]."</td>
+	<td>".$array[10]."</td>
+	<td>".$array[11]."</td>
 </tr>";
 $i++;
 }
-else
-{
-echo "0 results";
-}
-
 
 ?>
 </table>
@@ -231,4 +223,6 @@ echo "0 results";
 </form>
 </body>
 </html>
+  
+
   
